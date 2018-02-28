@@ -25,16 +25,39 @@ public class ControlFlowExercises {
 //            i *= 2;
 //        } while (i <= 1000000);
 
-
 //        for(int i = 5; i <= 15; i ++) {
 //            System.out.println("i is " + i);
 //        }
-
 
 //        for(int i = 100; i >= -10; i -= 5) {
 //            System.out.println("i is " + i);
 //        }
 
+//        for(int i = 2; i <= 1000000; i *= 2) {
+//            System.out.println("i is " + i);
+//        }
+
+        for (int i = 1; i <= 100; i++) {
+            boolean fizzBuzz = false;
+            if (i % 3 == 0) {
+                System.out.print("Fizz");
+                fizzBuzz = true;
+            }
+            if (i % 5 == 0) {
+                System.out.print("Buzz");
+                fizzBuzz = true;
+            }
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.print("");
+                fizzBuzz = true;
+            }
+
+            if (fizzBuzz) {
+                System.out.println();
+            } else {
+                System.out.println(String.valueOf(i));
+            }
+        }
 
     }
 }
