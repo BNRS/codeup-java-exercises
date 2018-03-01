@@ -8,31 +8,22 @@ public class Bob {
 //        He says 'Fine. Be that way!' if you address him without actually saying anything.
 //        He answers 'Whatever.' to anything else.
 
-//        Scanner sc = new Scanner(System.in);
-//        boolean question = true;
-//        boolean yell = true;
-//        boolean whatever = true;
-//
-//        System.out.print("Ask bob a question...anything..really..: " );
-//        String sureResponse = sc.nextLine();
-//        if (question == true) {
-//            sureResponse = "Sure";
-//            System.out.println(sureResponse);
-//        }
-//        System.out.print("Bob does not like it when you yell at him..so..yell at him!");
-//        String yellResponse = sc.nextLine();
-//        if (yell == true)
-//            yellResponse ="Whoa chill out man!";
-//            System.out.println(yellResponse);
-//
-//        System.out.print("Say anything you want to, to Bob..: ");
-//        String whateverResponse = sc.nextLine();
-//        if (whatever == true)
-//            whateverResponse ="Whatever dude";
-//        System.out.println(whateverResponse);
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ask Bob a question: ");
+        String response = sc.nextLine();
 
 
-
+        if (response.endsWith("?")) {
+            System.out.println("Sure");
+        } else if (response.trim().equals("")) {
+            System.out.println("Fine. Be that way!");
+        } else if (response.endsWith("!") || response.toUpperCase().equals(response)) {
+            System.out.println("Whoa, chill out!");
+        } else {
+            System.out.println("Whatever");
+        }
 
 
     }
