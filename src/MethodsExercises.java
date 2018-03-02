@@ -2,101 +2,168 @@ import java.util.Scanner;
 
 public class MethodsExercises {
     public static void main(String[] args) {
-//addition(2, 4);
-//subtraction(2, 4);
-//multiplication(2, 2);
-//division(8, 2);
-//gradeFinder();
-//factorial(0, 0);
-rollDice(0, 0);
 
+        int number1 = getInteger(1, 10);
+        int number2 = getInteger(10, 33);
 
+        double sum = add(number1, number2);
+        double difference = subtract(number1, number2);
+        double product = multiplication(number1, number2);
+        double quotient = divide(number1, number2);
+
+        System.out.println("The sum of " + number1 + " and " + number2 + " is: " + sum);
+        System.out.println("The difference of " + number1 + " and " + number2 + " is: " + difference);
+        System.out.println("The sum product of " + number1 + " and " + number2 + " is: " + product);
+        System.out.println("The quotient of " + number1 + " and " + number2 + " is: " + quotient);
+
+        System.out.println("Now we're going to calculate factorials!");
+        int userInt;
+        long factorialResult;
+
+        do {
+            userInt = getInteger(1, 10);
+            factorialResult = factorial(userInt);
+            System.out.println("The factorial for " + userInt + "! is " + factorialResult);
+        } while(wantsToContinue());
+
+        System.out.println("Thanks for playing \"Factorial!\"");
+
+        System.out.println();
+        System.out.println("Now let's play \"Roll The Dice!\"");
+        diceRoller();
+    }
+
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    public static double subtract(double a, double b) {
+        return a - b;
+    }
+
+    public static double multiplication(double a, double b) {
+        return a * b;
+    }
+
+    public static double divide(double a, double b) {
+        return a / b;
+    }
+
+    public static double modulo(double a, double b) {
+        return a % b;
+    }
+
+    public static int getInteger(int min, int max) {
+        System.out.println("Please input an integer between " + min + " and " + max + ":");
+        Scanner scan = new Scanner(System.in);
+        int number = scan.nextInt();
+        if(number < min || number > max) {
+            return getInteger(min, max);
+        } else {
+            return number;
+        }
+    }
+
+    public static boolean wantsToContinue() {
+        System.out.println();
+        Scanner scan = new Scanner(System.in);
+        String userSelection;
+        boolean wantsToContinue;
+
+        System.out.println("Would you like to continue? Type \"y\" or yes to continue.");
+        userSelection = scan.next();
+        wantsToContinue = userSelection.equalsIgnoreCase("y") || userSelection.equalsIgnoreCase("yes");
+
+        return wantsToContinue;
+    }
+
+    public static long factorial(int num) {
+        // set the output at
+        long output = num;
+
+        // start w/ 1, then multiply by each number up to but not including the num.
+        for(int i = 1; i <= 5; i++) {
+            output *= i;
+        }
+
+        return output;
     }
 
 
-//    public static void addition(int a, int b) {
-//        System.out.println(a + b);
-//        }
-//
-//    public static void subtraction(int a, int b) {
-//        System.out.println(a - b);
-//    }
-//
-//    public static void multiplication(int a, int b) {
-//        System.out.println(a * b);
-//    }
-//
-//    public static void division(int a, int b) {
-//        if (a/b % 2 == 0) {
-//            System.out.println( (a/b) + " is an even number");
-//        } else {
-//            System.out.println( (a/b) + " is an odd number");
-//        }
-//    }
+    public static void diceRoller() {
+        diceSplash();
 
-//    public static void gradeFinder() {
-//        Scanner sc = new Scanner(System.in);
-//        String choice = "y";
-//
-//        while (choice.equalsIgnoreCase("y")) {
-//            System.out.println("Enter your class grade: ");
-//            int grade = sc.nextInt();
-//
-//            if (grade >= 88) {
-//                System.out.println("Your grade is a A");
-//            } else if (grade >= 80 & grade <= 87) {
-//                System.out.println("You received a B");
-//            } else if (grade >= 67 & grade <= 79) {
-//                System.out.println("You received a C");
-//            } else if (grade >= 60 & grade <= 66) {
-//                System.out.println("You received an D");
-//            } else if (grade >= 0 & grade <= 59) {
-//                System.out.println("You received an F");
-//            }
-//
-//            System.out.print("Enter another grade? (y/n): ");
-//            System.out.println();
-//            choice = sc.next();
-//
-//        }
-//    }
+        System.out.println("How many sides should each die have?");
+        int sides = getInteger(1, 100);
+        int die1;
+        int die2;
+        int result;
 
+        die1 = roll(sides);
+        System.out.println("The first die rolled a " + die1);
 
-//    public static int factorial(int min, int max) {
-//
-//        Scanner sc = new Scanner(System.in);
-//
-//        System.out.print("Enter a number between 1 and 10: ");
-//        int userInput = sc.nextInt();
-//
-//        if (userInput > 0 && userInput <= 10) {
-//            System.out.print("You are within range! Good job!: ");
-//        } else {
-//            System.out.print("You're not within range bro.. ");
-//        }
-//        return userInput;
-//    }
+        die2 = roll(sides);
+        System.out.println("The second die rolled a " + die2);
 
-    public static int rollDice(int die1, int die2) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of sides for the dice: ");
-        int userInput = sc.nextInt();
+        result = die1 + die2;
+        System.out.println("Result of both dice is: " + result);
 
-        die1 = (int) (Math.random() * userInput);
-        die2 = (int) (Math.random() * userInput);
-        int roll = die1 + die2;
+        if(wantsToContinue()) {
+            diceRoller();
+        } else {
+            System.out.println("Thanks for playing \"D I C E   R O L L E R \"!");
+        }
 
-        System.out.println("The first die comes up " + die1);
-        System.out.println("The second die comes up " + die2);
-        System.out.println("Your total roll is " + roll);
+    }
+
+    public static int roll(int numberOfSides) {
+        return (int) Math.ceil(Math.random() * numberOfSides);
+    }
+
+    public static void diceSplash() {
+        String display1 = "\n\n" +
+                "       .-------.    ______\n" +
+                "      /   o   /|   /\\     \\\n" +
+                "     /_______/o|  /o \\  o  \\\n" +
+                "     | o     | | /   o\\_____\\\n" +
+                "     |   o   |o/ \\o   /o    /\n" +
+                "     |     o |/   \\ o/  o  /\n" +
+                "     '-------'     \\/____o/ \n\n\n";
+
+        String display2 = "\n" +
+                "              _______.\n" +
+                "   ______    | .   . |\\\n" +
+                "  /     /\\   |   .   |.\\\n" +
+                " /  '  /  \\  | .   . |.'|\n" +
+                "/_____/. . \\ |_______|.'|\n" +
+                "\\ . . \\    /  \\ ' .   \\'|\n" +
+                " \\ . . \\  /    \\____'__\\|\n" +
+                "  \\_____\\/"
+                + "\n\n";
 
 
-    return userInput;
+        String display3 = "\n" +
+                "  ____\n" +
+                " /\\' .\\    _____\n" +
+                "/: \\___\\  / .  /\\\n" +
+                "\\' / . / /____/..\\\n" +
+                " \\/___/  \\'  '\\  /\n" +
+                "          \\'__'\\/"
+                + "\n\n";
 
+        int randomDisplay = roll(3);
+
+        String display;
+
+        if(randomDisplay == 1) {
+            display = display1;
+        } else if(randomDisplay == 2) {
+            display = display2;
+        } else {
+            display = display3;
+        }
+
+        System.out.println(display);
     }
 
 }
-
-
-
-

@@ -125,11 +125,7 @@ public class ControlFlowExercises {
 
 
 
-
-
-
 //        Scanner sc = new Scanner(System.in);
-
 //        String choice = "y";
 //        while (choice.equalsIgnoreCase("y")) {
 //            System.out.println("Enter your class grade: ");
