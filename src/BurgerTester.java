@@ -1,7 +1,7 @@
 public class BurgerTester {
     public static void main(String[] args) {
 
-        BurgerTools.setMostPopularTopping("");
+        BurgerTools.setMostPopularTopping("pep");
         String topping = BurgerTools.getMostPopularTopping();
 
         BurgerTools.setAverageDaysBeforeExpiration(1);
