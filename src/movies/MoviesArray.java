@@ -1,6 +1,20 @@
 package movies;
 
+import java.util.Random;
+
 public class MoviesArray {
+
+//    public static void addRatings(Movies[] movies) {
+//        Random rng = new Random();
+//        for (Movie movie : movies) {
+//            movie.setRating(rng.nextInt(10));
+//        }
+//    }
+//
+//    public static Movie[] findAll() {
+//        Movie[] movies = generateMovies
+//    }
+
     public static Movie[] findAll() {
         return new Movie[]{
             new Movie("Citizen Kane", "drama"),
