@@ -96,7 +96,7 @@ public class GradesApplication {
             grade = input.getIntWithinRange("Please input a grade: ",1, 100);
             student.addGrade(grade);
 
-        } while(input.yesNo("Do you want to add another grade? Y or yes to input a new grade."));
+        } while(input.yesNo("Do you want to add another grade? y or yes to input a new grade."));
 
         students.put(username, student);
 
