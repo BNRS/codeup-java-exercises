@@ -10,6 +10,7 @@ public class GradesApplication {
     public static void main(String[] args) {
 
         System.out.println("Welcome to the grades application!");
+        System.out.println();
 
         // create a map of students where the key is their github username.
         HashMap<String, Student> students;
@@ -19,6 +20,9 @@ public class GradesApplication {
 
         // display only the student github usernames
         showStudentDetail(students);
+
+        // addStudent(students);
+        addStudent(students);
 
         System.out.println("Thank you for using the grades application.");
 
@@ -30,6 +34,7 @@ public class GradesApplication {
 
         do {
             showUsernames(students);
+            System.out.println();
             System.out.println("Please input the username for the student to get their grades");
             requestedUsername = input.getString("");
 
@@ -75,6 +80,12 @@ public class GradesApplication {
     }
 
     public static HashMap<String, Student> addStudent(HashMap<String, Student> students) {
+        boolean newUser = input.yesNo("enter new user? yes or no?");
+
+        if (!newUser) {
+            return null;
+        }
+
         String username = input.getString("Please input the new student's github username: ");
         String name = input.getString("Input the student's full name? ");
 
@@ -82,7 +93,7 @@ public class GradesApplication {
 
         int grade;
         do {
-            grade = input.getIntWithinRange("Please input a grade: ", 1, 100);
+            grade = input.getIntWithinRange("Please input a grade: ",1, 100);
             student.addGrade(grade);
 
         } while(input.yesNo("Do you want to add another grade? Y or yes to input a new grade."));
@@ -95,8 +106,12 @@ public class GradesApplication {
 
     public static void showUsernames(HashMap<String, Student> students) {
         for (String key : students.keySet() ) {
-            System.out.print( key + "        ");
+            System.out.print( key + " | ");
         }
         System.out.println();
     }
 }
+
+
+
+
