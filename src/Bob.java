@@ -22,7 +22,7 @@ public class Bob {
         } else if (response.endsWith("!") || response.toUpperCase().equals(response)) {
             System.out.println("Whoa, chill out!");
         } else {
-            System.out.println("Whatever");
+            System.out.println("Whatever..");
         }
 
 
