@@ -49,8 +49,16 @@ public class Input {
 
     public double getDouble(String prompt) {
         System.out.println(prompt);
-        return getDouble(prompt);
+        String dblInput = scan.nextLine();
+
+        try {
+            return Double.valueOf(dblInput);
+        } catch (NumberFormatException e) {
+            System.out.println("ERROR - Input must be a double");
+            return getDouble(prompt);
+        }
     }
+
 
     public double getDoubleWithinRange(String prompt, double min, double max) {
         double number = getDouble(prompt);
@@ -59,6 +67,16 @@ public class Input {
         } else {
             return number;
         }
-
     }
+
+    public int getHex() {
+        String userInput = scan.next();
+        try{
+            return Integer.valueOf(userInput, 5);
+        } catch (NumberFormatException e) {
+            System.out.println("enter a valid hex value");
+            return getHex();
+        }
+    }
+
 }
