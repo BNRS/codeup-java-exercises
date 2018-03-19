@@ -36,6 +36,7 @@ public class Student {
 
     /**Create an application for tracking student grades*/
 
+
     //properties
     private ArrayList<Integer> grades = new ArrayList<>();
     private String name;
