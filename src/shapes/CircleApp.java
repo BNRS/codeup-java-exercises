@@ -2,7 +2,7 @@ package shapes;
 
 public class CircleApp {
     public static void main(String[] args) {
-        System.out.print("Here's how many circles are created right now: ");
+        System.out.print("Here's how many circles are created: ");
         System.out.println(Circle.getNumberOfCircles());
 
         Circle one = new Circle(20);
